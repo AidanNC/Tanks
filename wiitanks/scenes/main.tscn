@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://c21a40lwtsts"]
+
+[ext_resource type="Script" path="res://scripts/server.gd" id="1_y13x8"]
+[ext_resource type="PackedScene" uid="uid://i6ltt86envxg" path="res://scenes/tank.tscn" id="2_rvhrb"]
+[ext_resource type="PackedScene" uid="uid://c2p11dpi1hmw4" path="res://scenes/wall.tscn" id="3_db0ny"]
+[ext_resource type="PackedScene" uid="uid://cmk01jg1mim7o" path="res://flag.tscn" id="4_15orx"]
+[ext_resource type="PackedScene" uid="uid://dgqco3c5d23ee" path="res://scenes/base.tscn" id="5_0doxl"]
+
+[node name="Node" type="Node"]
+
+[node name="Base" parent="." instance=ExtResource("5_0doxl")]
+position = Vector2(154, 132)
+color = Color(0.792157, 0.862745, 0.0117647, 0.392157)
+
+[node name="Base2" parent="." instance=ExtResource("5_0doxl")]
+position = Vector2(2802, 1755)
+team = 1
+color = Color(0.117647, 0.0627451, 0.560784, 0.392157)
+
+[node name="server" type="Node" parent="."]
+script = ExtResource("1_y13x8")
+
+[node name="Tank0" parent="server" instance=ExtResource("2_rvhrb")]
+position = Vector2(273, 444)
+collision_layer = 4
+team = 0
+
+[node name="Tank1" parent="server" instance=ExtResource("2_rvhrb")]
+position = Vector2(399, 157)
+collision_layer = 4
+team = 0
+
+[node name="Tank2" parent="server" instance=ExtResource("2_rvhrb")]
+position = Vector2(2638, 1328)
+collision_layer = 8
+team = 1
+
+[node name="Tank3" parent="server" instance=ExtResource("2_rvhrb")]
+position = Vector2(2440, 1620)
+collision_layer = 8
+team = 1
+
+[node name="border" type="Node" parent="."]
+
+[node name="wall" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(-5, 276)
+
+[node name="wall8" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(-4, 766)
+
+[node name="wall9" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(-2, 1243)
+
+[node name="wall10" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(-1, 1733)
+
+[node name="wall11" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2982, 164)
+
+[node name="wall12" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2983, 654)
+
+[node name="wall13" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2985, 1131)
+
+[node name="wall14" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2986, 1621)
+
+[node name="wall2" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(251, -14)
+rotation = 1.57079
+
+[node name="wall3" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(746, -14)
+rotation = 1.57079
+
+[node name="wall4" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(1242, -14)
+rotation = 1.57079
+
+[node name="wall5" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(1737, -14)
+rotation = 1.57079
+
+[node name="wall6" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2228, -14)
+rotation = 1.57079
+
+[node name="wall7" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2723, -14)
+rotation = 1.57079
+
+[node name="wall15" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(308, 1928)
+rotation = 1.57079
+
+[node name="wall16" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(803, 1928)
+rotation = 1.57079
+
+[node name="wall17" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(1299, 1928)
+rotation = 1.57079
+
+[node name="wall18" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(1794, 1928)
+rotation = 1.57079
+
+[node name="wall19" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2285, 1928)
+rotation = 1.57079
+
+[node name="wall20" parent="border" instance=ExtResource("3_db0ny")]
+position = Vector2(2780, 1928)
+rotation = 1.57079
+
+[node name="walls" type="Node" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(579, 401)
+
+[node name="wall2" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(936, 929)
+
+[node name="wall6" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(2404, 507)
+
+[node name="wall7" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(2197, 1365)
+
+[node name="wall3" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(629, 1528)
+rotation = 1.5708
+
+[node name="wall4" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(1647, 1245)
+rotation = 1.5708
+
+[node name="wall5" parent="walls" instance=ExtResource("3_db0ny")]
+position = Vector2(1604, 599)
+rotation = 1.5708
+
+[node name="Flag" parent="." instance=ExtResource("4_15orx")]
+position = Vector2(100, 500)
+color = Color(0.792157, 0.862745, 0.0117647, 1)
+
+[node name="Flag2" parent="." instance=ExtResource("4_15orx")]
+position = Vector2(2758, 1217)
+team = 1
+color = Color(0.117263, 0.06451, 0.561529, 1)

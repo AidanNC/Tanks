@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://i6ltt86envxg"]
+
+[ext_resource type="Script" path="res://scripts/tank.gd" id="1_njy3n"]
+[ext_resource type="PackedScene" uid="uid://ct1dghfhvq7e8" path="res://scenes/bullet.tscn" id="2_g7bpv"]
+[ext_resource type="PackedScene" uid="uid://dtd7j8jt8ptw0" path="res://scenes/redwins.tscn" id="3_cwmet"]
+[ext_resource type="PackedScene" uid="uid://cmk01jg1mim7o" path="res://flag.tscn" id="3_ttfvo"]
+[ext_resource type="PackedScene" uid="uid://ckh0lp72pls0u" path="res://scenes/bluewin.tscn" id="4_7jpq7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cqc0"]
+radius = 35.0
+height = 160.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0fhj"]
+radius = 40.0
+height = 172.0
+
+[node name="Tank" type="CharacterBody2D"]
+script = ExtResource("1_njy3n")
+bullet = ExtResource("2_g7bpv")
+bluewin = ExtResource("3_cwmet")
+redwin = ExtResource("4_7jpq7")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = 1.5708
+color = Color(0.827994, 0.151995, 0.761566, 1)
+polygon = PackedVector2Array(-17, -69, 0, -106, 18, -72, 37, 1, 50, 79, -64, 76, -35, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3cqc0")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d0fhj")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="Countdown" type="Label" parent="."]
+offset_left = 44.0
+offset_top = -31.0
+offset_right = 106.0
+offset_bottom = 79.0
+rotation = 1.5708
+theme_override_font_sizes/font_size = 50
+
+[node name="Flag" parent="." instance=ExtResource("3_ttfvo")]
+visible = false
+position = Vector2(-4, -67)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

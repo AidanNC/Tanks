@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmk01jg1mim7o"]
+
+[ext_resource type="Script" path="res://scripts/flag.gd" id="1_r51fu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xhp4"]
+size = Vector2(30, 123)
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("1_r51fu")
+
+[node name="flag_hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flag_hitbox"]
+position = Vector2(5, 8.5)
+shape = SubResource("RectangleShape2D_0xhp4")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(2, 37, 2, -6, 21, -9, -3, -26)
