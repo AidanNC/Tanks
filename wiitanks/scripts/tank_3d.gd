@@ -11,8 +11,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = cos(player_direction) * speed
 		velocity.z = sin(player_direction) * speed
 
-		# rotation = Vector3(0, player_direction, 0)
-
 		move_and_slide()
 
 
