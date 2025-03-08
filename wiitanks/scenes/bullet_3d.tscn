@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvofdahqqf133"]
+
+[ext_resource type="Script" uid="uid://dlaoy7l8t6n7q" path="res://scripts/bullet_3d.gd" id="1_5a1ki"]
+[ext_resource type="PackedScene" uid="uid://t80wvlf6vs5n" path="res://assets/Torpedo.glb" id="2_5a1ki"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5a1ki"]
+radius = 0.4
+height = 1.5
+
+[node name="Bullet_3d" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_5a1ki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0280786, 0.999606, 0, -0.999606, -0.0280786, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_5a1ki")
+
+[node name="Torpedo" parent="." instance=ExtResource("2_5a1ki")]
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0, 0, 0)

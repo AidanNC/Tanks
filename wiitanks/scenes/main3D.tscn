@@ -17,7 +17,9 @@ sky = SubResource("Sky_3ls03")
 [node name="Main3d" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.805473, 0.592632, 0, -0.592632, 0.805473, 0.753593, 4.80462, 5.29921)
+transform = Transform3D(1, 0, 0, 0, 0.500438, 0.865772, 0, -0.865772, 0.500438, 4.26457, 20.8616, 13.3291)
+projection = 1
+size = 30.524
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1geb6")
@@ -33,4 +35,13 @@ script = ExtResource("2_nx0yb")
 [node name="Node2" type="Node" parent="."]
 
 [node name="Wall3d" parent="Node2" instance=ExtResource("3_nx0yb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.6304)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0518675, 1.90735e-06, -15.0412)
+
+[node name="Wall3d4" parent="Node2" instance=ExtResource("3_nx0yb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0518675, 1.90735e-06, 12.236)
+
+[node name="Wall3d2" parent="Node2" instance=ExtResource("3_nx0yb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.0921, 0, 0.207337)
+
+[node name="Wall3d3" parent="Node2" instance=ExtResource("3_nx0yb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.6069, 0, 0.207337)
