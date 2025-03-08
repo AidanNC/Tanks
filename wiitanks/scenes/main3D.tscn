@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://k80acj35orra"]
+[gd_scene load_steps=7 format=3 uid="uid://k80acj35orra"]
 
 [ext_resource type="PackedScene" uid="uid://bsjt3fasdc3iu" path="res://scenes/tank_3d.tscn" id="1_3ls03"]
 [ext_resource type="Script" uid="uid://hf6g1673jqkt" path="res://scripts/server3d.gd" id="2_nx0yb"]
 [ext_resource type="PackedScene" uid="uid://dikyv7ml0dwse" path="res://scenes/wall_3d.tscn" id="3_nx0yb"]
-[ext_resource type="PackedScene" uid="uid://dds6acqn205s5" path="res://scenes/floor_3d.tscn" id="4_snx1t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jjtw"]
 sky_top_color = Color(0.489937, 0.869271, 0.947554, 1)
@@ -18,7 +17,7 @@ sky = SubResource("Sky_3ls03")
 [node name="Main3d" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.500438, 0.865772, 0, -0.865772, 0.500438, 4.28423, 20.8616, 13.3289)
+transform = Transform3D(1, 0, 0, 0, 0.500438, 0.865772, 0, -0.865772, 0.500438, 4.26457, 20.8616, 13.3291)
 projection = 1
 size = 30.524
 
@@ -46,5 +45,3 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.09
 
 [node name="Wall3d3" parent="Node2" instance=ExtResource("3_nx0yb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.6069, 0, 0.207337)
-
-[node name="Node3D" parent="." instance=ExtResource("4_snx1t")]
