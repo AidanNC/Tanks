@@ -9,7 +9,7 @@
 script = ExtResource("1_1oksq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(-6.64413e-08, -1.52, 0, 1.52, -6.64413e-08, 0, 0, 0, 1.52, 0, 0.546, 0)
 shape = SubResource("CapsuleShape3D_l2gtn")
 debug_color = Color(0.927351, 3.65794e-05, 0.668888, 0.42)
 

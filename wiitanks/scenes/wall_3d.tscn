@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dikyv7ml0dwse"]
+[gd_scene load_steps=4 format=3 uid="uid://dikyv7ml0dwse"]
 
 [ext_resource type="PackedScene" uid="uid://c5dnwncud6unm" path="res://assets/test wall.glb" id="1_n4jxd"]
+[ext_resource type="Script" uid="uid://t60abv62l25s" path="res://scripts/wall_3d.gd" id="1_xb7bq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4jxd"]
-size = Vector3(7.3, 2, 2)
+margin = 0.0
+size = Vector3(7.35, 2.02, 2.04)
 
-[node name="Wall3d" type="RigidBody3D"]
+[node name="Wall3d" type="StaticBody3D"]
+script = ExtResource("1_xb7bq")
 
 [node name="test wall" parent="." instance=ExtResource("1_n4jxd")]
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868233, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.898097, 0)
 shape = SubResource("BoxShape3D_n4jxd")

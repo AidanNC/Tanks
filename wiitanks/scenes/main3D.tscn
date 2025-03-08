@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://k80acj35orra"]
 
 [ext_resource type="PackedScene" uid="uid://bsjt3fasdc3iu" path="res://scenes/tank_3d.tscn" id="1_3ls03"]
-[ext_resource type="PackedScene" uid="uid://c5dnwncud6unm" path="res://assets/test wall.glb" id="2_1geb6"]
 [ext_resource type="Script" uid="uid://hf6g1673jqkt" path="res://scripts/server3d.gd" id="2_nx0yb"]
+[ext_resource type="PackedScene" uid="uid://dikyv7ml0dwse" path="res://scenes/wall_3d.tscn" id="3_nx0yb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jjtw"]
 sky_top_color = Color(0.489937, 0.869271, 0.947554, 1)
@@ -25,13 +25,12 @@ environment = SubResource("Environment_1geb6")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.993696, 0.000937242, -0.112107, 0.112111, -0.00830727, 0.993661, 0, -0.999965, -0.00835997, 0, 2.54474, 0)
 
-[node name="test wall" parent="." instance=ExtResource("2_1geb6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0415316, 0, -5.9561)
-
-[node name="test wall2" parent="." instance=ExtResource("2_1geb6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.64196, 0, -2.80904)
-
 [node name="Node" type="Node" parent="."]
 script = ExtResource("2_nx0yb")
 
 [node name="Tank3d_0" parent="Node" instance=ExtResource("1_3ls03")]
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Wall3d" parent="Node2" instance=ExtResource("3_nx0yb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.6304)
