@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		if abs(angle.x) > 0.5:
 			velocity.x *= -1
 			rotation = -rotation
-			# rotation.y -= 90
+			rotation.y += PI 
 			
 		if abs(angle.z) > 0.5:
 			velocity.z *= -1

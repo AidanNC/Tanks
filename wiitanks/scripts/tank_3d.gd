@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var bullet: PackedScene
 @onready var scene_root = get_tree().root.get_children()[0]
 @onready var timer = $Timer
+@onready var cannon = $Cannon
 
 var can_shoot = true
 var bulletID = RandomNumberGenerator.new().randi_range(0, 1000000)
@@ -25,10 +26,18 @@ func _physics_process(_delta: float) -> void:
 func setPlayerDirection(direction):
 	player_direction = direction
 	if player_direction != null:
-		rotation = Vector3(0,-player_direction, 0)
+		rotation = Vector3(0,-player_direction, 0) 
+		
 
 func shoot(direction):
-	if direction == null || !can_shoot:
+	
+	if direction == null:
+		return
+	print("shoot " , direction)
+	#cannon.rotation = Vector3(0,-direction, 0)
+	#+90 because its rotate by 90 in the original scene
+	cannon.global_rotation = Vector3(0,-direction+ PI/2, 0)
+	if !can_shoot:
 		return
 	print("shooting")
 	var bullet_instance = bullet.instantiate()
