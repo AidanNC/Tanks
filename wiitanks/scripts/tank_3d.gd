@@ -11,8 +11,7 @@ func _process(_delta: float) -> void:
 		velocity.x = cos(player_direction) * speed
 		velocity.z = sin(player_direction) * speed
 
-		rotation = Vector3(0,player_direction, 0)
-
+		
 
 func _physics_process(delta: float) -> void:
 	if player_direction != null:
@@ -20,5 +19,8 @@ func _physics_process(delta: float) -> void:
 
 func setPlayerDirection(direction):
 	player_direction = direction
+	if player_direction != null:
+		rotation = Vector3(0,-player_direction, 0)
 	print(player_direction)
+	print(rotation)
 	return
