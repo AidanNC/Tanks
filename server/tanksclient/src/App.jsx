@@ -4,7 +4,8 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Joystick from "./views/Joystick";
 
-const socket = new WebSocket("ws://10.0.0.66:9080"); //chanage this all the time
+
+const socket = new WebSocket(import.meta.env.VITE_SERVER_URL); //chanage this all the time
 
 function App() {
 	function handleMessage(event) {
