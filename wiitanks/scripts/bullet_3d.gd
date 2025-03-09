@@ -4,6 +4,10 @@ var speed = 10
 var collisions = 3
 var bulletID = -1
 
+func _ready() -> void:
+	add_to_group("bullets")
+	print(self.name + " added to bullets group: " + str(is_in_group("bullets")))
+
 func _physics_process(delta: float) -> void:
 	
 	var col = move_and_collide(Vector3(velocity.x, velocity.y, velocity.z) * speed * delta)

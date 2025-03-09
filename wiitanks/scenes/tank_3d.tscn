@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsjt3fasdc3iu"]
+[gd_scene load_steps=8 format=3 uid="uid://bsjt3fasdc3iu"]
 
 [ext_resource type="Script" uid="uid://bivw2pg0ki4ap" path="res://scripts/tank_3d.gd" id="1_1oksq"]
 [ext_resource type="PackedScene" uid="uid://dvofdahqqf133" path="res://scenes/bullet_3d.tscn" id="2_l2gtn"]
 [ext_resource type="PackedScene" uid="uid://dsl2pxn6iapwo" path="res://assets/test shark 4.glb" id="3_2uu0r"]
 [ext_resource type="PackedScene" uid="uid://b7r61jsyeyg0y" path="res://assets/headcannon 1.glb" id="4_18vvw"]
+[ext_resource type="PackedScene" uid="uid://bd7sin8g7l7wp" path="res://assets/heart.glb" id="5_18vvw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l2gtn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_18vvw"]
+radius = 0.8
+height = 4.91434
 
 [node name="Tank3d" type="CharacterBody3D"]
 collision_layer = 2
@@ -25,5 +30,30 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Cannon" parent="." instance=ExtResource("4_18vvw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.363154, 1.24063, 0)
+
+[node name="LivesDisplay" type="Node3D" parent="."]
+transform = Transform3D(0.946936, -0.321423, 0, 0.321423, 0.946936, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Heart1" type="MeshInstance3D" parent="LivesDisplay"]
+
+[node name="heart" parent="LivesDisplay/Heart1" instance=ExtResource("5_18vvw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.223747, -0.111522, 0, 0.111522, 0.223747, 0, 1.96709, 0.474264)
+
+[node name="Heart2" type="MeshInstance3D" parent="LivesDisplay"]
+
+[node name="heart" parent="LivesDisplay/Heart2" instance=ExtResource("5_18vvw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 2.07696, 0)
+
+[node name="Heart3" type="MeshInstance3D" parent="LivesDisplay"]
+
+[node name="heart" parent="LivesDisplay/Heart3" instance=ExtResource("5_18vvw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.233397, 0.0895879, 0, -0.0895879, 0.233397, 0, 1.96362, -0.486001)
+
+[node name="HitBox" type="Area3D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(-0.0441774, 0.999024, 0, -0.999024, -0.0441774, 0, 0, 0, 1, -0.28114, -0.0848674, 0)
+shape = SubResource("CapsuleShape3D_18vvw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
