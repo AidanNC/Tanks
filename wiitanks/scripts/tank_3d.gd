@@ -1,24 +1,57 @@
 extends CharacterBody3D
 
 @export var bullet: PackedScene
+@export var max_lives = 3
 @onready var scene_root = get_tree().root.get_children()[0]
 @onready var timer = $Timer
 @onready var cannon = $Cannon
+@onready var lives_display = $LivesDisplay
 
+var current_lives = max_lives
 var can_shoot = true
 var bulletID = RandomNumberGenerator.new().randi_range(0, 1000000)
 var player_direction = null
 var speed = 5.0
 
+
 func _ready() -> void:
-	pass
+	current_lives = max_lives
+	update_hearts_display()
+
+	var hitbox = $HitBox
+	hitbox.connect("body_entered", Callable(self, "_on_hit_box_body_entered"))
+	return
+
+func _on_hit_box_body_entered(body):
+	if body.is_in_group("bullets") and body.bulletID != bulletID:
+		print("HIT BOX ENTERED")
+		take_damage()
+		body.queue_free()
 
 func _physics_process(_delta: float) -> void:
 	if player_direction != null:
 		velocity.x = cos(player_direction) * speed
 		velocity.z = sin(player_direction) * speed
-
 		move_and_slide()
+
+func update_hearts_display() -> void:
+	for i in range(1, max_lives + 1):
+		var heart = lives_display.get_node("Heart" + str(i))
+		heart.visible = i <= current_lives
+
+
+
+
+func take_damage() -> void:
+	current_lives -= 1
+	update_hearts_display()
+	if current_lives <= 0:
+		on_death()
+
+func on_death():
+	queue_free()
+
+
 
 
 func setPlayerDirection(direction):

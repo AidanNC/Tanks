@@ -32,6 +32,9 @@ script = ExtResource("2_nx0yb")
 
 [node name="Tank3d_0" parent="Node" instance=ExtResource("1_3ls03")]
 
+[node name="Tank3d" parent="Node" instance=ExtResource("1_3ls03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8837, 0, 0)
+
 [node name="Node2" type="Node" parent="."]
 
 [node name="Wall3d" parent="Node2" instance=ExtResource("3_nx0yb")]
